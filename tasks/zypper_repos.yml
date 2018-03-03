@@ -1,0 +1,16 @@
+---
+- name: Adding zypper repositories
+  zypper_repository:
+    repo: "{{ zypper_repo.url }}"
+    name: "{{ zypper_repo.alias }}"
+    state: present
+    runrefresh: yes
+    autorefresh: yes
+    overwrite_multiple: yes
+    auto_import_keys: yes
+  with_items:
+    - { url: 'http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_42.3', alias: 'packman' }
+    - { url: 'http://download.opensuse.org/repositories/science/openSUSE_Leap_42.3', alias: 'science' }
+    - { url: 'http://download.opensuse.org/repositories/mozilla/openSUSE_Leap_42.3', alias: 'mozilla' }
+  loop_control:
+    loop_var: zypper_repo

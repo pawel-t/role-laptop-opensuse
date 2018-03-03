@@ -1,0 +1,5 @@
+---
+# tasks file for role-laptop-opensuse
+
+- import_tasks: zypper_repos.yml
+- import_tasks: tools.yml
