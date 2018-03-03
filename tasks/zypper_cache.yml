@@ -1,5 +1,0 @@
----
-# tasks related to zypper_cache for role-laptop-opensuse
-- name: refresh the cache
-  zypper:
-    update_cache: yes
